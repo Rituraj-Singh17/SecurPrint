@@ -1,0 +1,34 @@
+# .NET build files
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+
+# Authentication data and secrets
+**/users.json
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Logs and temporary files
+**/logs/
+*.log
+*.tmp
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Local application configuration and authentication data
+**/appsettings.json
+**/users.json
+
+**/appsettings.Development.json

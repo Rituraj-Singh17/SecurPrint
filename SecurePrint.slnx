@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/backend_service/">
+    <Project Path="backend_service/SecurePrint.BackendService/SecurePrint.BackendService.csproj" />
+  </Folder>
+  <Folder Name="/frontend_ui/">
+    <Project Path="frontend_ui/SecurePrint.UserAgent/SecurePrint.UserAgent.csproj" />
+  </Folder>
+  <Folder Name="/shared/">
+    <Project Path="shared/SecurePrint.Shared/SecurePrint.Shared.csproj" />
+  </Folder>
+</Solution>

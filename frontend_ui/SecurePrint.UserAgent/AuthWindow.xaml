@@ -1,0 +1,99 @@
+<Window x:Class="SecurePrint.UserAgent.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Secure Print - Authentication"
+        Width="560" Height="520"
+        MinWidth="520" MinHeight="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>   <!-- Title -->
+            <RowDefinition Height="Auto"/>   <!-- Info -->
+            <RowDefinition Height="Auto"/>   <!-- Timer -->
+            <RowDefinition Height="*"/>      <!-- Form -->
+            <RowDefinition Height="Auto"/>   <!-- Buttons -->
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="Release Print Job"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Margin="0,0,0,15"/>
+
+        <!-- Job Info -->
+        <Border Grid.Row="1"
+                Background="#F5F5F5"
+                CornerRadius="10"
+                Padding="15"
+                Margin="0,0,0,15">
+            <StackPanel>
+                <TextBlock Text="Document:" FontWeight="Bold"/>
+                <TextBlock Text="{Binding DocumentName}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="Submitting user:" FontWeight="Bold"/>
+                <TextBlock Text="{Binding SubmittingUser}" Margin="0,0,0,8"/>
+
+                <TextBlock Text="Printer:" FontWeight="Bold"/>
+                <TextBlock Text="{Binding PrinterName}"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Timer -->
+        <TextBlock Grid.Row="2"
+                   Text="{Binding CountdownText}"
+                   Foreground="Red"
+                   FontWeight="Bold"
+                   Margin="0,0,0,15"/>
+
+        <!-- Form (Scrollable just in case) -->
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+
+                <TextBlock Text="Authenticate to print:"
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+
+                <!-- Username -->
+                <TextBlock Text="Username"/>
+                <TextBox Height="35"
+                         Margin="0,5,0,10"
+                         HorizontalAlignment="Stretch"
+                         Text="{Binding Username}"/>
+
+                <!-- Password -->
+                <TextBlock Text="Password"/>
+                <PasswordBox x:Name="PasswordBox"
+                             Height="35"
+                             Margin="0,5,0,10"
+                             HorizontalAlignment="Stretch"
+                             PasswordChanged="PasswordBox_OnPasswordChanged"/>
+
+                <!-- Error -->
+                <TextBlock Text="{Binding ErrorText}"
+                           Foreground="Red"
+                           Margin="0,5,0,0"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Buttons (ALWAYS visible) -->
+        <StackPanel Grid.Row="4"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,15,0,0">
+
+            <Button Content="Cancel"
+                    Width="100"
+                    Height="35"
+                    Margin="0,0,10,0"
+                    Click="Cancel_Click"/>
+
+            <Button Content="Release Print"
+                    Width="150"
+                    Height="35"
+                    Click="Release_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
